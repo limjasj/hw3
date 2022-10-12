@@ -81,8 +81,23 @@ Node* llfilter(Node* head, Comp pred)
     //*********************************************
     // Provide your implementation below
     //*********************************************
-
-
+    if(head == nullptr) //nothing left in list
+    {
+        return head;
+    }
+    Node* return_node= llfilter(head->next, pred);
+    
+    if(pred(head->val) ) //if odd, then skip
+    {
+        delete head;
+        return return_node;
+    }
+    else //if not then move on
+    {        
+        head->next=return_node;
+        return head;
+    }
+    
 }
 
 #endif

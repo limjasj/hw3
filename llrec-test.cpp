@@ -67,7 +67,14 @@ void dealloc(Node* head)
 //   function object struct declarations
 // -----------------------------------------------
 
-
+struct Odds
+{
+    public:
+    bool operator()(int compare) //functor
+    {
+    return (compare % 2 != 0); //returns true if odd
+    }
+};
 
 
 
@@ -86,7 +93,12 @@ int main(int argc, char* argv[])
     print(head);
 
     // Test out your linked list code
+        
+    Odds test;
 
+    Node* filtered_list=llfilter(head, test);
+    cout<<"Filtered list: ";
+    print(filtered_list);
 
 
     
