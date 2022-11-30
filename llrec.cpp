@@ -16,6 +16,7 @@ void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot)
   {
     larger=nullptr;
     smaller=nullptr;
+
     return;
     //base case
   }
@@ -23,11 +24,13 @@ void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot)
   {
     smaller=head;
     llpivot(head->next, smaller->next, larger, pivot);
+    head=nullptr;
   }
   else if(head->val > pivot) //put in "larger" linked list
   {
     larger=head;
     llpivot(head->next, smaller, larger->next, pivot);
+    head=nullptr;
   }
 }
 
